@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+{% for obj in object_list %}
+<h3> {{ obj.artist }} </h3>
+
+{% for title in obj.artwork.all %}
+<p>Title: {{ title }} </p>
+
+{% endfor %}
+
+
+{% for picture in obj.artwork.all %}
+{% if picture %}
+<img src="{{picture.image.url}}" width="20%" height="10%">
+{% else %}
+<h1> No Image</h1>
+
+{% endif %}
+<br>
+</ul>
+<br>
+<br>
+{% endfor %}
+{% endfor %}
+
+
+{% endblock %}

@@ -20,3 +20,6 @@ class artworkDetailView(DetailView):
     template_name = 'artwork/detail.html'
 
 
+
+
+
