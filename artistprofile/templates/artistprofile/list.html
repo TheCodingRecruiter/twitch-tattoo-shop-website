@@ -5,27 +5,34 @@
 
 
 {% for obj in object_list %}
-<h3> {{ obj.artist }} </h3>
-
-{% for title in obj.artwork.all %}
-<p>Title: {{ title }} </p>
+<!-- <h3> {{ obj.artist }} </h3>
+{% for post in blog %}
+<h1> {{ post }} </h1> -->
 
 {% endfor %}
 
-
-{% for picture in obj.artwork.all %}
-{% if picture %}
-<img src="{{picture.image.url}}" width="20%" height="10%">
+{% for artworkobj in obj.artwork.all %}
+<p>Title: {{ artworkobj.artwork_title }} </p>
+{% if artworkobj %}
+<img src="{{artworkobj.image.url}}" width="20%" height="10%">
 {% else %}
 <h1> No Image</h1>
 
 {% endif %}
-<br>
-</ul>
-<br>
-<br>
-{% endfor %}
-{% endfor %}
 
+{% endfor %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+{% endfor %}
 
 {% endblock %}

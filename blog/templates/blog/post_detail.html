@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container text-left">
+  <div class="row">
+    <div class="card bg-secondary mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+
+        <p class=" text-white">{{ post.author }} | {{ post.created_on | date:"F d Y" }}</p>
+        <hr/>
+        <br>
+        <p>{{ object.content | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
