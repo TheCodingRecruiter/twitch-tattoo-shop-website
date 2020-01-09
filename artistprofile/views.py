@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from blog.models import Post
+from testimonial.models import Testimonial
+
 
 
 # Create your views here.
@@ -24,5 +27,5 @@ class artistProfileListView(ListView):
 
 
 class artistProfileDetailView(DetailView):
-    queryset = ArtistProfile.objects.all()
+    queryset = Post.objects.all()
     template_name = 'artistprofile/detail.html'

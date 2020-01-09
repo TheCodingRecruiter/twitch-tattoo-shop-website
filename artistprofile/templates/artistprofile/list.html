@@ -5,20 +5,34 @@
 
 
 {% for obj in object_list %}
-<!-- <h3> {{ obj.artist }} </h3>
-{% for post in blog %}
-<h1> {{ post }} </h1> -->
+<h3> {{ obj.artist }} </h3>
+
+<hr>
+{% for post in obj.blog_posts.all %}
+
+<a href="{{ request.title }}{% url 'artistprofile:detail' post.slug %}">Blog Post: {{ post }}</a> <hr>
 
 {% endfor %}
+<hr>
+{% for review in obj.customer_testimonials.all %}
+<a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
+{% endfor %}
 
+
+<hr>
 {% for artworkobj in obj.artwork.all %}
 <p>Title: {{ artworkobj.artwork_title }} </p>
 {% if artworkobj %}
-<img src="{{artworkobj.image.url}}" width="20%" height="10%">
+<span id="artwork-container" class="artworkcontainer">Artwork: </span>
+<img src="{{artworkobj.image.url}}" width="20%" height="10%"><hr>
 {% else %}
-<h1> No Image</h1>
+
+<h1> Coming Soon </h1>
 
 {% endif %}
+
+<hr>
+
 
 {% endfor %}
 <br>
