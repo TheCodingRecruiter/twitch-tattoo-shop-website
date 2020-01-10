@@ -2,6 +2,7 @@ from django.db import models
 
 from artwork.models import Artwork
 
+
 # import artistprofile.models
 # Create your models here.
 
@@ -36,6 +37,7 @@ class TestimonialManager(models.Manager):
 
 class Testimonial(models.Model):
     customer_name = models.CharField(max_length=255)
+    artist = models.CharField(default='Jason', max_length=255)
     slug = models.SlugField(max_length=200, unique=True)
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name="artist_artwork")
     testimony = models.TextField()
