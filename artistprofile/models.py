@@ -26,6 +26,7 @@ class ArtistProfileManager(models.Manager):
 class ArtistProfile(models.Model):
     artist = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
+    slug = models.SlugField(default='coming-here-soon')
     phone = models.CharField(max_length=12)
     artwork = models.ManyToManyField(Artwork, blank=True)
     tattoo_artist = models.BooleanField(default=True)

@@ -3,47 +3,20 @@
 
 {% block content %}
 
-
+<hr>
 {% for obj in object_list %}
-<h3> {{ obj.artist }} </h3>
 
-<hr>
-{% for post in obj.blog_posts.all %}
-
-<a href="{{ request.title }}{% url 'artistprofile:detail' post.slug %}">Blog Post: {{ post }}</a> <hr>
-
-{% endfor %}
-<hr>
-{% for review in obj.customer_testimonials.all %}
-<a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
-{% endfor %}
-
-
-<hr>
-{% for artworkobj in obj.artwork.all %}
-<p>Title: {{ artworkobj.artwork_title }} </p>
-{% if artworkobj %}
-<span id="artwork-container" class="artworkcontainer">Artwork: </span>
-<img src="{{artworkobj.image.url}}" width="20%" height="10%"><hr>
-{% else %}
-
-<h1> Coming Soon </h1>
-
-{% endif %}
+<br>
+<br>
+<br>
+<a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">Profile: {{ obj.artist }}</a> <hr>
 
 <hr>
 
+<br>
+<br>
+<br>
 
-{% endfor %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 

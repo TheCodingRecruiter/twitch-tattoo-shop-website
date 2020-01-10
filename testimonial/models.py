@@ -10,6 +10,30 @@ STATUS = (
     (1,"Active")
 )
 
+
+class TestimonialQuerySet(models.query.QuerySet):
+    def active(self):
+        return self.filter(active=True)
+
+    def featured(self):
+        return self.filter(featured=True, active=True)
+    
+    # def search(self, query):
+    #     lookups = (Q(artist_name__icontains=query) | 
+    #     Q(artwork_title__icontains=query)
+    #     )
+    #     return self.filter(lookups).distinct()
+    
+
+class TestimonialManager(models.Manager):
+    def get_queryset(self):
+        return TestimonialQuerySet(self.model, using=self._db)
+
+    def all(self):
+        return self.get_queryset()
+
+
+
 class Testimonial(models.Model):
     customer_name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=200, unique=True)
@@ -18,6 +42,8 @@ class Testimonial(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
+    objects = TestimonialQuerySet()
+    
     class Meta:
         ordering = ['-created_on']
 

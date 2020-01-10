@@ -27,5 +27,11 @@ class artistProfileListView(ListView):
 
 
 class artistProfileDetailView(DetailView):
-    queryset = Post.objects.all()
+    queryset = ArtistProfile.objects.all()
     template_name = 'artistprofile/detail.html'
+    model = ArtistProfile
+
+    def get_context_data(self, **kwargs):
+        context = super(artistProfileDetailView, self).get_context_data(**kwargs)
+        context['artwork'] = Artwork.objects.all()
+        return context

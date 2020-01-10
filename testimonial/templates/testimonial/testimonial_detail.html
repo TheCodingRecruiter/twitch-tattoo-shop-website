@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container text-left">
+  <div class="row">
+    <div class="card bg-secondary mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.artwork }} {% endblock title %}</h1>
+
+        <p class=" text-white">{{ testimonial.artist }} | {{ testimonial.created_on | date:"F d Y" }}</p>
+        <hr/>
+        {% if object.artwork%}
+        <img src="{{object.artwork.image.url}}" width="20%" height="10%">
+
+        {% endif %}
+        <br>
+        <p>{{ testimonial.testimony | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

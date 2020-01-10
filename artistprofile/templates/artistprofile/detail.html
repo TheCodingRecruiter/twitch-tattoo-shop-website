@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<hr>
+
+
+<h3> {{ object.artist }} </h3>
+
+<hr>
+<h2>ARTWORK</h2>
+
+<br><br>
+{% for artworkobj in object.artwork.all %}
+{% if artworkobj %}
+<span id="artwork-container" class="artworkcontainer">Artwork: </span>
+<img src="{{artworkobj.image.url}}" width="20%" height="10%"><hr>
+{% else %}
+<h1> Coming Soon </h1>
+{% endif %}
+{% endfor %}
+
+
+{% for post in object.blog_posts.all %}
+
+<a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">Blog Post: {{ post }}</a> <hr>
+
+{% endfor %}
+
+{% for review in object.customer_testimonials.all %}
+<a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
+{% endfor %}
+
+
+
+
+<br>
+<br>
+<br>
+
+
+{% endblock %}

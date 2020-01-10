@@ -14,8 +14,12 @@
 
     <title>Tattoo Shop Website</title>
   </head>
-  <body>
-    <div class='tattoo-shop-website-container'>
+  <body class='bg-dark font-white'>
+
+    {% include "base/navbar.html" with brand_name="Plymouth Skating Center" %}
+    <div class='bg-dark font-white'>
+
+
     <h1>Tattoo Shop Website - The Coding Recruiter</h1>
 
     {% block content %} {% endblock %}
