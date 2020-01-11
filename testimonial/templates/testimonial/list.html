@@ -19,7 +19,9 @@
 
            
             {% if obj.artwork %}
+            <a href="{{ request.artwork }}{% url 'artwork:detail' obj.artwork.slug %}">
             <img src="{{ obj.artwork.image.url}}" width="20%" height="10%">
+        </a>
             {% else %}
             <h1> Coming Soon </h1>
             {% endif %}

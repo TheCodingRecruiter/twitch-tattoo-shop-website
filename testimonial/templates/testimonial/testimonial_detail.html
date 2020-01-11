@@ -13,7 +13,9 @@
         <p class=" text-white">{{ testimonial.artist }} | {{ testimonial.created_on | date:"F d Y" }}</p>
         <hr/>
         {% if object.artwork%}
+        <a href="{{ request.artwork }}{% url 'artwork:detail' object.artwork.slug %}">
         <img src="{{object.artwork.image.url}}" width="20%" height="10%">
+        </a>
 
         {% endif %}
         <br>

@@ -3,23 +3,37 @@
 
 {% block content %}
 
+<div class="text-white">
 <hr>
+
+<h1>Artists </h1>
 {% for obj in object_list %}
 
+<div class="text-center">
 <br>
 <br>
-<br>
-<a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">Profile: {{ obj.artist }}</a> <hr>
-
+<h2><a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
+<h5>Work</h5>
+{% for artworkobj in obj.artwork.all %}
+{% if artworkobj %}
+<div>
+<a href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
+<img src="{{ artworkobj.image.url}}" width="20%" height="10%">
+</a>
+ <br><br>
+{% else %}
+<h1> Coming Soon </h1> <br><br>
+{% endif %}
+</div>
+{% endfor %}
 <hr>
-
 <br>
 <br>
-<br>
-
-
-
-
+</div>
 {% endfor %}
 
+
+
+
+</div>
 {% endblock %}

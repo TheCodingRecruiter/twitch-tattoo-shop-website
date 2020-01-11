@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if object.image%}
+<img src="{{ artwork.image.url}}">
+{% endif %}
+
+
+
+{% endblock %}

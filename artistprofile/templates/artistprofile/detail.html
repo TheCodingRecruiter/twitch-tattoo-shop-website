@@ -2,42 +2,63 @@
 {% load static %}
 
 {% block content %}
-
+<div>
 <hr>
 
 
-<h3> {{ object.artist }} </h3>
+    <h1 class="text-center"> {{ object.artist }} </h1>
 
-<hr>
-<h2>ARTWORK</h2>
+        <hr>
+        <h4>ARTWORK</h4>
 
-<br><br>
-{% for artworkobj in object.artwork.all %}
-{% if artworkobj %}
-<span id="artwork-container" class="artworkcontainer">Artwork: </span>
-<img src="{{artworkobj.image.url}}" width="20%" height="10%"><hr>
-{% else %}
-<h1> Coming Soon </h1>
-{% endif %}
-{% endfor %}
+        <br><br>
+        {% for artworkobj in object.artwork.all %}
+        {% if artworkobj %}
+        <img src="{{artworkobj.image.url}}" width="20%" height="10%"> <br><br>
+        {% else %}
+        <h1> Coming Soon </h1>
+        {% endif %}
+        {% endfor %}
+        <hr>
 
-
-{% for post in object.blog_posts.all %}
-
-<a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">Blog Post: {{ post }}</a> <hr>
-
-{% endfor %}
-
-{% for review in object.customer_testimonials.all %}
-<a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
-{% endfor %}
+    <h4>BLOG POST(S)</h4> 
 
 
 
+<!-- {% if obj.blogobject.all %}
+          <div class="card bg-secondary mb-4  mt-3 left  top">
+            <div class="card-body">
+              <h1>{% block title %} {{ obj.blogobject.title }} {% endblock title %}</h1>
+      
+              <p class=" text-white">{{ obj.blogobject.author }} | {{ obj.blogobject.created_on | date:"F d Y" }}</p>
+              <hr/>
+              <br>
+              <p>{{ obj.blogobject.content | safe }}</p>
+            </div>
+          </div>
+{% endif %} -->
 
-<br>
-<br>
-<br>
 
 
+
+    <br><br>
+    {% for post in object.blog_posts.all %}
+    <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">{{ post }}</a> 
+    {% endfor %}
+    <hr>
+
+        <h4>TESTIMONIAL(S)</h4> 
+        <br><br>
+        {% for review in object.customer_testimonials.all %}
+        <a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
+        {% endfor %}
+        <hr>
+
+
+
+    <br>
+    <br>
+    <br>
+
+</div>
 {% endblock %}

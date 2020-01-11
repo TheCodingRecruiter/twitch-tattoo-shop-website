@@ -45,6 +45,7 @@ class Artwork(models.Model):
     artist_name = models.CharField(max_length=255)
     artwork_title = models.CharField(max_length=255, default='Artist tattoo design')
     image = models.ImageField(upload_to='artwork/', null=True, blank=True)
+    slug = models.SlugField(default=artwork_title)
 
     objects = ArtworkQuerySet()
 
