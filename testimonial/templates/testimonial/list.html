@@ -12,8 +12,22 @@
         <div class="carousel-item text-center text-light mb-5 {% if forloop.first %} active{% endif %}">
 
             <p class="px-3">{{ obj.artwork }}</p>
+            <hr>
 
             <p class="px-3">{{ obj.artist }}</p>
+
+
+           
+            {% if obj.artwork %}
+            <img src="{{ obj.artwork.image.url}}" width="20%" height="10%">
+            {% else %}
+            <h1> Coming Soon </h1>
+            {% endif %}
+            <br>
+            <br>
+            <p class="px-3">{{ obj.testimony }}</p>
+       
+
 
         </div>
     <!-- end item -->

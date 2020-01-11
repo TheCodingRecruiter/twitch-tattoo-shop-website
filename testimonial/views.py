@@ -16,7 +16,7 @@ class TestimonialList(generic.ListView):
         context = super(TestimonialList, self).get_context_data(**kwargs)
         context['testimonial'] = Testimonial.objects.all()
         context['artist'] = ArtistProfile.objects.all()
-        context['artwork'] = Artwork.objects.all()
+        context['artworkobject'] = Artwork.objects.all()
         return context
 
 
