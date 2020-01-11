@@ -10,45 +10,41 @@
 
         <hr>
         <h4>ARTWORK</h4>
-
-        <br><br>
+        <br>
         {% for artworkobj in object.artwork.all %}
         {% if artworkobj %}
-        <img src="{{artworkobj.image.url}}" width="20%" height="10%"> <br><br>
+        <a href="{{ request.artworkobj }}{% url 'artwork:detail' artworkobj.slug %}">
+        <img src="{{artworkobj.image.url}}" width="20%" height="10%">
+        </a> <br><br>
         {% else %}
         <h1> Coming Soon </h1>
         {% endif %}
         {% endfor %}
         <hr>
+        <br>
 
     <h4>BLOG POST(S)</h4> 
-
-
-
-<!-- {% if obj.blogobject.all %}
-          <div class="card bg-secondary mb-4  mt-3 left  top">
-            <div class="card-body">
-              <h1>{% block title %} {{ obj.blogobject.title }} {% endblock title %}</h1>
-      
-              <p class=" text-white">{{ obj.blogobject.author }} | {{ obj.blogobject.created_on | date:"F d Y" }}</p>
-              <hr/>
-              <br>
-              <p>{{ obj.blogobject.content | safe }}</p>
-            </div>
-          </div>
-{% endif %} -->
-
-
-
-
-    <br><br>
+<br>
     {% for post in object.blog_posts.all %}
-    <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">{{ post }}</a> 
+    <div class="card bg-secondary mb-4  mt-3 left  top">
+      <div class="card-body">
+        <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}" class="text-white">
+        <h1>{{ post.title }} </h1>
+      </a>
+
+        <p class=" text-white">{{ post.created_on | date:"F d Y" }}</p>
+        <hr/>
+        <br>
+        <p>{{ post.content | safe }}</p>
+    <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}" class="btn btn-primary">Read More</a> 
+  </div>
+</div>
     {% endfor %}
     <hr>
+    <br>
 
         <h4>TESTIMONIAL(S)</h4> 
-        <br><br>
+        <br>
         {% for review in object.customer_testimonials.all %}
         <a href="{{ request.customer_name }}{% url 'testimonial:testimonial_detail' review.slug %}">Testimonial: {{ review }}</a><hr>
         {% endfor %}
