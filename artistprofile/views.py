@@ -35,4 +35,5 @@ class artistProfileDetailView(DetailView):
         context = super(artistProfileDetailView, self).get_context_data(**kwargs)
         context['artwork'] = Artwork.objects.all()
         context['blogobject'] = Post.objects.all()
+        context['testimonial'] = Testimonial.objects.all()
         return context

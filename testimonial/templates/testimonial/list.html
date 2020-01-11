@@ -10,14 +10,9 @@
     {% for obj in object_list %}
     <!-- item -->
         <div class="carousel-item text-center text-light mb-5 {% if forloop.first %} active{% endif %}">
-
             <p class="px-3">{{ obj.artwork }}</p>
             <hr>
-
             <p class="px-3">{{ obj.artist }}</p>
-
-
-           
             {% if obj.artwork %}
             <a href="{{ request.artwork }}{% url 'artwork:detail' obj.artwork.slug %}">
             <img src="{{ obj.artwork.image.url}}" width="20%" height="10%">
@@ -28,11 +23,7 @@
             <br>
             <br>
             <p class="px-3">{{ obj.testimony }}</p>
-       
-
-
         </div>
-    <!-- end item -->
     {% endfor %}
 </div>
 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

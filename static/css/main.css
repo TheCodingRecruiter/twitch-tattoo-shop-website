@@ -1,0 +1,9 @@
+.artwork-image-container {
+    width: 1024px;
+    display: flex;
+}
+
+.artwork-image {
+    width: 320px;
+    height: 120px;
+}

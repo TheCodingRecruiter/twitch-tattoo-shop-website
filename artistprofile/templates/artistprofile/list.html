@@ -9,20 +9,24 @@
 <h1>Artists </h1>
 {% for obj in object_list %}
 
-<div class="text-center">
+<div>
 <br>
 <br>
-<h2><a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
-<h5>Work</h5>
+<h2 class="text-center"><a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
+
+<h5 class="text-center">Work</h5>
+<div class="artwork-image-container">
 {% for artworkobj in obj.artwork.all %}
 {% if artworkobj %}
+<div class="artwork-image">
 <div>
 <a href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
-<img src="{{ artworkobj.image.url}}" width="20%" height="10%">
+<img src="{{ artworkobj.image.url}}" width="90%" height="10%">
 </a>
- <br><br>
+</div>
 {% else %}
 <h1> Coming Soon </h1> <br><br>
+</div>
 {% endif %}
 </div>
 {% endfor %}
@@ -31,7 +35,7 @@
 <br>
 </div>
 {% endfor %}
-
+</div>
 
 
 
