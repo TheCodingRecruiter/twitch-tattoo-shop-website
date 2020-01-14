@@ -3,41 +3,42 @@
 
 {% block content %}
 
-<div class="text-white">
-<hr>
+<div class="container">
+    <div class="text-white">
+        <hr>
 
-<h1>Artists </h1>
-{% for obj in object_list %}
+        <h1>Artists </h1>
+        {% for obj in object_list %}
 
-<div>
-<br>
-<br>
-<h2 class="text-center"><a href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
+        <div>
+            <br>
+            <br>
+            <h2 class="text-center"><a
+                    href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
 
-<h5 class="text-center">Work</h5>
-<div class="artwork-image-container">
-{% for artworkobj in obj.artwork.all %}
-{% if artworkobj %}
-<div class="artwork-image">
-<div>
-<a href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
-<img src="{{ artworkobj.image.url}}" width="90%" height="10%">
-</a>
-</div>
-{% else %}
-<h1> Coming Soon </h1> <br><br>
-</div>
-{% endif %}
-</div>
-{% endfor %}
-<hr>
-<br>
-<br>
-</div>
-{% endfor %}
-</div>
+            <h5>Work</h5>
+            <div class="d-inline">
+                {% for artworkobj in obj.artwork.all %}
+                {% if artworkobj %}
+                <div class="d-inline">
+                    <div class="d-inline">
+                        <a href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
+                            <img src="{{ artworkobj.image.url}}" width="30%" height="10%" style="margin: 10px;">
+                        </a>
+                    </div>
+                    {% else %}
+                    <h1> Coming Soon </h1> <br><br>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
 
 
+
+</div>
 
 </div>
 {% endblock %}

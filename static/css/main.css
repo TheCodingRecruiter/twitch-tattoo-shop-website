@@ -7,3 +7,17 @@
     width: 320px;
     height: 120px;
 }
+
+
+/* MOBILE DEVICES */
+@media screen and (max-width: 415px)  {
+    .artwork-image {
+        width: 135px;
+    }
+
+    .mobile-device {
+        width: 415px;
+    
+}
+
+}

@@ -26,14 +26,27 @@ class artistProfileListView(ListView):
         return ArtistProfile.objects.all()
 
 
+
+# filters = models.Q()
+# if first_name:
+#     filters &= models.Q(
+#         authors__first_name=first_name,
+#     )
+# if last_name:
+#     filters &= models.Q(
+#         authors__last_name=last_name,
+#     )
+# queryset = Book.objects.filter(filters)
+
 class artistProfileDetailView(DetailView):
     queryset = ArtistProfile.objects.all()
+    blog_posts = Post.objects.filter(status=1)
     template_name = 'artistprofile/detail.html'
     model = ArtistProfile
 
     def get_context_data(self, **kwargs):
         context = super(artistProfileDetailView, self).get_context_data(**kwargs)
         context['artwork'] = Artwork.objects.all()
-        context['blogobject'] = Post.objects.all()
+        # context['blogobject'] = Post.objects.all()
         context['testimonial'] = Testimonial.objects.all()
         return context
