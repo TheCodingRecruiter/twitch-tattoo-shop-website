@@ -36,7 +36,7 @@
 <h4>BLOG POST(S)</h4>
 <br>
 {% for post in object.blog_posts.all %}
-
+{% if post.status %}
 <div class="card bg-secondary mb-4 mt-3 left top">
   <div class="card-body">
     <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}" class="text-white">
@@ -50,6 +50,7 @@
     <a href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}" class="btn btn-primary">Read More</a>
   </div>
 </div>
+{% endif %}
 {% endfor %}
 </div>
 <hr>
