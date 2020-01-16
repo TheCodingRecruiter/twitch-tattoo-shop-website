@@ -1,8 +1,15 @@
 .grid-container {
     display: grid;
     justify-content: center;
-    grid-template-columns: auto auto auto;
-    grid-gap: 120px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 8px;
+}
+
+.contact-button {
+    width: 160px;
+    height: 40px;
+    background: teal;
+    color: white;
 }
 
 .item {
@@ -10,8 +17,4 @@
     height: 200px;
     background: black;
     color: white;
-}
-
-.red-apples {
-    text-decoration: line-through;
 }

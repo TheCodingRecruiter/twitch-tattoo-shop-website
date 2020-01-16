@@ -17,7 +17,7 @@ class ContactForm(ModelForm):
     customer_email = forms.EmailField()
     contact_dropdown_options = forms.ChoiceField(choices=CONTACT, required=False)
     contact_subject = forms.CharField(max_length=255)
-    contact_message = forms.CharField()
+    contact_message = forms.Textarea()
     class Meta:
         model = Contact
         fields = ['customer_name', 'customer_phone', 'customer_email', 'contact_dropdown_options', 'contact_subject', 'contact_message', 'image']

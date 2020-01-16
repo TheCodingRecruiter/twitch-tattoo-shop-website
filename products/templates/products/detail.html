@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- ########### LOAD IN ################# -->
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="text-center">
+                <h1> {{object.title}} </h1>
+                     
+                    {% if object.image %}
+                    <img src='{{object.image.url}}' class='img-fluid'/> <br>
+                    {% endif %}
+                    {{object.price}} <br>
+                    {{object.description|linebreaks}}
+                </div>
+                </div>
+        <div class="col-12 col-md-6">
+
+
+         
+
+        </div>
+</div>
+
+
+
+
+
+<!-- ############### EXIT OUT ################### -->
+{% endblock %}

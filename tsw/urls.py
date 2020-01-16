@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from accounts.views import login_page, register_page, guest_register_view
 
 urlpatterns = [
     path('tsw-no-admin/', admin.site.urls),
@@ -26,6 +27,10 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^testimonial/', include('testimonial.urls')),
     url(r'^contact/', include('contact.urls')),
+    url(r'^products/', include('products.urls')),
+    url(r'^login/$', login_page, name='login'),
+    # url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', register_page, name='register'),
 ]
 
 if settings.DEBUG:
