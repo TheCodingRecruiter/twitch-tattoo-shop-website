@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'artistprofile',
     'blog',
     'testimonial',
+    'contact'
 ]
 
 MIDDLEWARE = [

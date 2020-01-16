@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<link rel='stylesheet' href="{% static 'css/main.css' %}" >
+
+
+{% block content %}
+<div class="container">
+
+    <p class="red-apples">Full Name: {{form.customer_name}}</p> 
+    <p>Phone Number: {{form.customer_phone}}</p>
+    <p>Email Address: {{form.customer_email}}</p>
+    <p>Category: {{form.contact_dropdown_options}}</p>
+
+    <p>Subject: {{form.contact_subject}}</p>
+    <p>Message: {{form.contact_message}}</p>
+
+
+
+</div>
+{% endblock %}

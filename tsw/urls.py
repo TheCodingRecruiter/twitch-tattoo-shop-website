@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^artist/', include('artistprofile.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^testimonial/', include('testimonial.urls')),
+    url(r'^contact/', include('contact.urls')),
 ]
 
 if settings.DEBUG:
