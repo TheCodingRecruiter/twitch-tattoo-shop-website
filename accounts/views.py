@@ -52,8 +52,8 @@ def login_page(request):
             if is_safe_url(redirect_path, request.get_host()):
                 return redirect(redirect_path)
             else:
-                return redirect('/')
-            return redirect("/")
+                return redirect('/artist')
+            return redirect("/artist")
 
         else:
             ## Invalid Login

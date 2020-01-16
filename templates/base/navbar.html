@@ -3,6 +3,9 @@
 {% url 'testimonial:list' as testimonial_url %}
 {% url 'contact:contact' as contact_url %}
 {% url 'products:list' as products_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+{% url 'logout' as logout_url %}
 {% load static %}
 
 
@@ -34,6 +37,20 @@
         <li class="nav-item {% if request.path == products_url %}active{% endif %}">
           <a class="nav-link" href="{{ products_url }}">In-Store Products</a>
         </li>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
+            <a class="nav-link" href="{{ logout_url }}" tabindex="-1" aria-disabled="true">Logout</a>
+          </li>
+        {% else %}
+
+        <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+            <a class="nav-link" href="{{ register_url }}" tabindex="-1" aria-disabled="true">Register</a>
+          </li>
+          <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+            <a class="nav-link" href="{{ login_url }}" tabindex="-1" aria-disabled="true">Login</a>
+          </li>
+ {% endif %}
 
 
       </ul>

@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import LogoutView
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
@@ -29,7 +30,7 @@ urlpatterns = [
     url(r'^contact/', include('contact.urls')),
     url(r'^products/', include('products.urls')),
     url(r'^login/$', login_page, name='login'),
-    # url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^register/$', register_page, name='register'),
 ]
 
