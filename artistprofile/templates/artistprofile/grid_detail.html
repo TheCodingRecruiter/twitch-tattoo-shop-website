@@ -2,89 +2,74 @@
 {% load static %}
 
 {% block content %}
+  <h1 class="center-text"> {{ object.artist }} </h1>
 
-<h1 class="center-text"> {{ object.artist }} </h1>
+  <h4 class="center-text">ARTWORK</h4>
 
-<h4 class="center-text">ARTWORK</h4>
-
-<div class="all-artwork-grid">
-{% for artworkobj in object.artwork.all %}
-{% if artworkobj %}
-<a class="artwork-img" href="{{ request.artworkobj }}{% url 'artwork:detail' artworkobj.slug %}">
-  <img src="{{artworkobj.image.url}}" width="250px" height="175px">
-</a>
-{% else %}
-<h1> Coming Soon </h1>
-{%endif%}
-{%endfor%}
-</div>
-
-
-
-
-
-
-
-
-<h4 class="center-text">BLOG POST(S)</h4>
-
-<div class="blog-post-card-grid">
-{% for post in object.blog_posts.all %}
-{% if post.status %}
-<div class="blog-card">
-    <a class="blog-artist-post-title" href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}" class="text-white">
-      <h1>{{ post.title }} </h1>
+  <div class="all-artwork-grid">
+    {% for artworkobj in object.artwork.all %}
+    {% if artworkobj %}
+    <a class="artwork-img" href="{{ request.artworkobj }}{% url 'artwork:detail' artworkobj.slug %}">
+      <img class="stock-image-size" src="{{artworkobj.image.url}}">
     </a>
-
-    <p class="blog-date" class=" text-white">{{ post.created_on | date:"F d Y" }}</p>
-    <hr />
-    <br>
-    <p class="blog-content">{{ post.content | slice:':100' }}...</p>
-    <div class="blog-button">
-    <a class="blog-button-submit" href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">Read More</a>
+    {% else %}
+    <h1> Coming Soon </h1>
+    {%endif%}
+    {%endfor%}
   </div>
-  </div>
-{% endif %}
-{% endfor %}
-</div>
 
 
 
-<h4>TESTIMONIAL(S)</h4>
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
-  <div class="carousel-inner" role="listbox">
-    {% for review in object.customer_testimonials.all %}
-    <div class="carousel-item text-center text-light mb-5 {% if forloop.first %} active{% endif %}">
-      <p> {{ review.artwork }}</p>
-      <hr>
-      <p> {{review.artist }}</p>
-      {% if review.artwork %}
-      <a href="{{ request.artwork }}{% url 'artwork:detail' review.artwork.slug %}">
-        <img src="{{ review.artwork.image.url}}" width="20%" height="10%">
+
+
+
+  <h4 class="center-text">BLOG POST(S)</h4>
+
+  <div class="blog-post-card-grid">
+    {% for post in object.blog_posts.all %}
+    {% if post.status %}
+    <div class="blog-card">
+      <a class="blog-artist-post-title" href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}"
+        class="text-white">
+        <h1>{{ post.title }} </h1>
       </a>
-      {% else %}
-      <h1> Coming Soon </h1>
-      {% endif %}
+
+      <p class="blog-date" class=" text-white">{{ post.created_on | date:"F d Y" }}</p>
+      <hr />
       <br>
-      <br>
-      <p class="px-3">{{ review.testimony }}</p>
+      <p class="blog-content">{{ post.content | slice:':100' }}...</p>
+      <div class="blog-button">
+        <a class="blog-button-submit" href="{{ request.artist }}{% url 'blog:post_detail' post.slug %}">Read More</a>
+      </div>
     </div>
-
+    {% endif %}
     {% endfor %}
-
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
+
+
+
+  <h4>TESTIMONIAL(S)</h4>
+
+  <div class="carousel-grid center-text">
+    {% for review in object.customer_testimonials.all %}
+    <div class="carousel-item {% if forloop.first %} active{% endif %}"></div>
+    <p> {{ review.artwork }}</p> <!-- The title -->
+    <hr>
+    <p> {{review.artist }}</p>
+    {% if review.artwork %}
+    <a href="{{ request.artwork }}{% url 'artwork:detail' review.artwork.slug %}">
+      <img class="stock-image-size" src="{{ review.artwork.image.url}}">
+    </a>
+    {% else %}
+    <h1> Coming Soon </h1>
+    {% endif %}
+    <p>{{ review.testimony }}</p>
+  </div>
+
+  {% endfor %}
+
 </div>
 
 {% endblock %}

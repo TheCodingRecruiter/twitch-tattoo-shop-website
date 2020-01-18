@@ -6,22 +6,17 @@
 
 
 {% block content %}
-<div class="grid-container">
+<div class="contact-container">
 
-    <p>Full Name: </p>
-    <p class="contact-form-field">{{form.customer_name}}</p>
-    <p>Phone Number: </p>
-    <p class="contact-form-field">{{form.customer_phone}}</p>
-    <p>Email Address: </p>
-    <p class="contact-form-field">{{form.customer_email}}</p>
-    <p>Category: </p>
-    <p class="contact-form-field">{{form.contact_dropdown_options}}</p>
-    <p>Subject: </p>
-    <p class="contact-form-field">{{form.contact_subject}}</p>
-    <p>Message: </p>
-    <p class="contact-form-field">{{form.contact_message}}</p>
+    <label for="firstName">First Name</label> {{form.customer_name}}
+    <label for="phoneNumber">Phone Number:</label>   {{form.customer_phone}}
+    <label for="emailAddress">Email Address:</label>   {{form.customer_email}}
+   <label for="category">Category:</label>{{form.contact_dropdown_options}}
+     <label for="subject">Subject:</label> {{form.contact_subject}}
+     <label for="message"> Message:</label>{{form.contact_message}}
 
     <button class="contact-button" type="submit">Send Message</button>
+
 
 
 </div>

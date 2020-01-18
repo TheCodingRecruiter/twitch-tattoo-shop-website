@@ -71,7 +71,7 @@ body {
 .blog-card {
     background: gray;
     color: white;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 .blog-artist-post-title {
@@ -140,3 +140,41 @@ a {
     margin: 0;
 }
 
+.stock-image-size {
+    width: 250px;
+    height: 175px;
+}
+
+.carousel-grid {
+    display:inline;
+    background: gray;
+    border-radius: 7px;
+    
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 50px;
+}
+
+.contact-container {
+    display: grid;
+    padding: 1em;
+    background: black;
+    border: 1px solid black;
+    margin: 2rem auto 0 auto;
+    max-width: 600px;
+    padding: 1em;
+}
+
+.contact-button {
+    background: white;
+    padding: 0.7em;
+    width: 100%;
+    border: 0;
+}
+
+label {
+    padding: 0.5em 0.5em 0.5em 0;
+  }

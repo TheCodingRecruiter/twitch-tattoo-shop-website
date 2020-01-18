@@ -18,7 +18,7 @@
     {% for artworkobj in obj.artwork.all %}
     {% if artworkobj %}
         <a class="artwork-img" href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
-            <img src="{{ artworkobj.image.url}}" width="250px" height="175px">
+            <img class="stock-image-size" src="{{ artworkobj.image.url}}">
         </a>
 
     {% else %}
