@@ -29,16 +29,10 @@ body {
 .artist-list-grid {
     display: grid;
     grid-template-columns: auto;
-
-    /* border: 1px orange;
-    border-style: solid;
-    border-width: 5px; */
 }
 
 .artist-profile-name-grid {
     display: grid;
-    
-
 }
 
 .all-artwork-grid {
@@ -53,26 +47,95 @@ body {
     grid-template-columns: auto auto auto;
 }
 
+
+
 .artwork-img {
     text-align: center;
     vertical-align: middle;
     padding-top: 10px;
 }
 
-a {
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-    /* text-transform: uppercase; */
-    margin: 4px 0;
-}
-
-a:hover {
+.artwork-img a:hover {
     border: 2px white;
     border-style: solid;
     border-width: 2px;
     text-transform: uppercase;
-    /* background-color: white !important; */
+    margin: 0;
+}
+
+.blog-post-card-grid {
+    display: grid;
+    grid-gap: 9px;
+}
+
+.blog-card {
+    background: gray;
+    color: white;
+    border-radius: 5px;
+}
+
+.blog-artist-post-title {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color: white;
+    padding-left: 10px;
+
+}
+
+.blog-date {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color: white;
+    padding-left: 10px;
+}
+
+
+.blog-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color: white;
+    padding-left: 10px;
+}
+
+.blog-button {
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    background-color: rgb(44, 41, 41);
+    color: white;
+    font-size: 25px;
+    padding-right: 5px;
+    padding-top: 15px;
+    padding-left: 3px;
+    padding-bottom: 15px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+
+.blog-button-submit {
+    border-radius: 10px;
+    color: white;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+}
+
+.blog-button a:hover {
+    background-color: black;
+    color: white;
+    padding-left: 3px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.navbar a:hover {
+    border: 2px white;
+    border-style: solid;
+    border-width: 2px;
+    text-transform: uppercase;
     
     margin: 0;
 }

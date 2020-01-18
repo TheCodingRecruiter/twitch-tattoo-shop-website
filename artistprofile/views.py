@@ -41,7 +41,7 @@ class artistProfileListView(ListView):
 class artistProfileDetailView(DetailView):
     queryset = ArtistProfile.objects.all()
     blog_posts = Post.objects.filter(status=1)
-    template_name = 'artistprofile/detail.html'
+    template_name = 'artistprofile/grid_detail.html'
     model = ArtistProfile
 
     def get_context_data(self, **kwargs):
