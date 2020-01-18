@@ -12,7 +12,7 @@ from artwork.models import Artwork
 
 
 class artistProfileListView(ListView):
-    template_name = 'artistprofile/list.html'
+    template_name = 'artistprofile/grid_list.html'
     model = ArtistProfile
 
     def get_context_data(self, **kwargs):

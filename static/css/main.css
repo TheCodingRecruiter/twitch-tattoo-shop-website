@@ -1,20 +1,79 @@
-.grid-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 8px;
-}
-
-.contact-button {
-    width: 160px;
-    height: 40px;
-    background: teal;
-    color: white;
-}
-
-.item {
-    width: 100px;
-    height: 200px;
+body {
     background: black;
     color: white;
 }
+.center-text {
+    text-align: center;
+}
+
+.my-grid {
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 8px;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.navbar li {
+    padding-left: 3.5px;
+    padding-right: 3.5px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.artist-list-grid {
+    display: grid;
+    grid-template-columns: auto;
+
+    /* border: 1px orange;
+    border-style: solid;
+    border-width: 5px; */
+}
+
+.artist-profile-name-grid {
+    display: grid;
+    
+
+}
+
+.all-artwork-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+}
+}
+
+.artist-artwork-images-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.artwork-img {
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+a {
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    margin: 4px 0;
+}
+
+a:hover {
+    border: 2px white;
+    border-style: solid;
+    border-width: 2px;
+    text-transform: uppercase;
+    /* background-color: white !important; */
+    
+    margin: 0;
+}
+

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Artists </h1>
+
+<div class="artist-list-grid">
+    {% for obj in object_list %}
+    <div class="artist-profile-name-grid">
+
+        <h2 class="center-text"><a
+                href="{{ request.artist }}{% url 'artistprofile:detail' obj.slug %}">{{ obj.artist }}</a></h2>
+
+    </div>
+    <h5 class="center-text">Work</h5>
+
+    <div class="all-artwork-grid">
+    {% for artworkobj in obj.artwork.all %}
+    {% if artworkobj %}
+        <a class="artwork-img" href="{{ request.artwork }}{% url 'artwork:detail' artworkobj.slug %}">
+            <img src="{{ artworkobj.image.url}}" width="250px" height="175px">
+        </a>
+
+    {% else %}
+    <h1> Coming Soon </h1>
+
+</div>
+{% endif %}
+
+{% endfor %}
+</div>
+{% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
